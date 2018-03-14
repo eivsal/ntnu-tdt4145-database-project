@@ -1,1 +1,1 @@
-# ntnu-tdt4145-database-project
+# ntnu-TDT4145-Database-Project
