@@ -3,11 +3,12 @@ package main;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
-public class Add {
+public class Connect {
     private Connection conn;
 
-    public Add (Connection conn) {
+    public Connect (Connection conn) {
         try{
             this.conn = conn;
         } catch(Exception e){
@@ -15,44 +16,33 @@ public class Add {
         }
     }
 
-    public void addWorkout(String date, String startTime, int shape, String note){
-        final String sql = "INSERT INTO workout(Date, StartTime, Shape, Note)"
+    public void connectExerciseToWorkout(int workout_id, int exrcise_id, String duration, int performance){
+        final String sql = "INSERT INTO workout_has_exercise(workout_id, exercise_id, duration, performance)"
                 + " VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)){
-            setParameters(statement, date, startTime, shape, note);
+            setParameters(statement, workout_id, exrcise_id, duration, performance);
             statement.execute();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public void addExercise(String name, String description){
-        final String sql = "INSERT INTO exercise(name, description)"
+    public void connectExerciseToExerciseGroup(int exercise_id, int exerciseGroup_id){
+        final String sql = "INSERT INTO exercise_has_exercisegroup(exercise_id, exerciseGroup_id)"
                 + " VALUES (?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)){
-            setParameters(statement, name, description);
+            setParameters(statement, exercise_id, exerciseGroup_id);
             statement.execute();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-    public void addEquipment(String description, String name){
-        final String sql = "INSERT INTO equipment(description, name)"
-                + " VALUES (?, ?)";
+    public void connectEquipmentToExercise(int exrcise_id, int equipment_id, float kilos, int sets){
+        final String sql = "INSERT INTO exercise_has_equipment(exercise_id, equipment_id, kilos, sets)"
+                + " VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)){
-            setParameters(statement, name, description);
-            statement.execute();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void addExerciseGroup(String name){
-        final String sql = "INSERT INTO exercisegroup(name)"
-                + " VALUES (?)";
-        try (PreparedStatement statement = conn.prepareStatement(sql)){
-            setParameters(statement, name);
+            setParameters(statement, exrcise_id, equipment_id, kilos, sets);
             statement.execute();
         } catch (Exception e) {
             System.out.println(e);
