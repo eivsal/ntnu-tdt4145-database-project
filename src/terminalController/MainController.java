@@ -1,11 +1,19 @@
 package terminalController;
 
+import com.util.ConnectionConfiguration;
+import main.Add;
+
+import java.sql.Connection;
+
 public class MainController {
 
 	private String command = null;
 	private String[] args;
+	Connection conn;
 
-	private MainController(String[] args) {
+
+	private MainController(Connection conn, String[] args) {
+		this.conn = conn;
 		this.args = args;
 		if (args.length == 0) {
 			System.out.println("Error: No argument specified, see 'help' for usage instructions.");
@@ -59,12 +67,16 @@ public class MainController {
 		} else {
 			switch (this.args[1]) {
 				case "workout":
-					if (args.length <= 6) {
+					if (args.length < 6) {
 						System.out.println("Error: Too few arguments");
 						usage = "Usage: add workout [date: YYYY:MM:DD] [start time: HH:MM:SS] [shape: 0-10] [note: \"text\"] ";
 						System.out.println(usage);
 					}
 					System.out.println("Run addWorkout"); // TODO: 'addWorkout' function
+					Add adder = new Add(this.conn);
+					System.out.println(args[2] + args[3] + args[4] + args[5]);
+//					adder.addWorkout(args[2], args[3], Integer.parseInt(args[4]), args[5]);
+					adder.addWorkout("1994-07-21", "01:52:12", 5, "Løpfort");
 					break;
 				case "exercise":
 					System.out.println("Run addExercise"); // TODO: 'addExercise' function
@@ -85,6 +97,7 @@ public class MainController {
 	}
 
 	public static void main(String[] args) {
-		MainController mainController = new MainController(args);
+		Connection conn = ConnectionConfiguration.getConnection();
+		MainController mainController = new MainController(conn, args);
 	}
 }

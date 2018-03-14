@@ -25,7 +25,7 @@ public class ConnectionConfiguration {
             Class.forName("com.mysql.jdbc.Driver");
             //retrieving my connection object
 
-            connection = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(url + "?useSSL=false", user, password);
         }
         catch(Exception exc){
             exc.printStackTrace();
