@@ -52,11 +52,11 @@ public class MainController {
 	}
 
 	private void help() {
-		System.out.println("THIS IS HOW YOU DO:");
-		System.out.println("help:     See this, duh.");
-		System.out.println("add:      See this, duh.");
-		System.out.println("list:     See this, duh.");
-		System.out.println("connect:  See this, duh.");
+		System.out.println(":");
+		System.out.println("help:     Display this message.");
+		System.out.println("add:      [workout/exercise/equipment/group] [data]");
+		System.out.println("list:     ");
+		System.out.println("connect:  ");
 	}
 
 	private void add() {
@@ -74,9 +74,9 @@ public class MainController {
 					}
 					System.out.println("Run addWorkout"); // TODO: 'addWorkout' function
 					Add adder = new Add(this.conn);
-					System.out.println(args[2] + args[3] + args[4] + args[5]);
-//					adder.addWorkout(args[2], args[3], Integer.parseInt(args[4]), args[5]);
-					adder.addWorkout("1994-07-21", "01:52:12", 5, "Løpfort");
+//					System.out.println(args[2] + args[3] + args[4] + args[5]);
+					adder.addWorkout(args[2], args[3], Integer.parseInt(args[4]), args[5]);
+//					adder.addWorkout("1994-07-21", "01:52:12", 5, "Løpfort");
 					break;
 				case "exercise":
 					System.out.println("Run addExercise"); // TODO: 'addExercise' function

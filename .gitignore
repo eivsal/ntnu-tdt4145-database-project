@@ -17,6 +17,6 @@
 hs_err_pid*
 
 .idea
-/out
+production/
 /target
 ConnectionCredentials.java
