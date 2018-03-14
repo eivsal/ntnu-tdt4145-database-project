@@ -13,14 +13,19 @@ public class ConnectionConfiguration {
     public static Connection getConnection(){
         Connection connection = null;
 
+        ConnectionCredentials connectionCredentials = new ConnectionCredentials();
+
+        String user = connectionCredentials.getUser();
+        String password = connectionCredentials.getPassword();
+        String url = connectionCredentials.getUrl();
+
         //1. try to connect to the sql database
         try{
             //pointer to driver mysql connector
             Class.forName("com.mysql.jdbc.Driver");
             //retrieving my connection object
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demojdbc", "root", "root");
-
+            connection = DriverManager.getConnection(url, user, password);
         }
         catch(Exception exc){
             exc.printStackTrace();
