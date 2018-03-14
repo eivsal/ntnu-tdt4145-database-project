@@ -23,7 +23,6 @@ public class Add {
             statement.execute();
         } catch (Exception e) {
             System.out.println(e);
-
         }
     }
 
@@ -35,7 +34,28 @@ public class Add {
             statement.execute();
         } catch (Exception e) {
             System.out.println(e);
+        }
+    }
 
+    public void addEquipment(String description, String name){
+        final String sql = "INSERT INTO equipment(description, name)"
+                + " VALUES (?, ?)";
+        try (PreparedStatement statement = conn.prepareStatement(sql)){
+            setParameters(statement, name, description);
+            statement.execute();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void addExerciseGroup(String name){
+        final String sql = "INSERT INTO exercisegroup(name)"
+                + " VALUES (?)";
+        try (PreparedStatement statement = conn.prepareStatement(sql)){
+            setParameters(statement, name);
+            statement.execute();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 

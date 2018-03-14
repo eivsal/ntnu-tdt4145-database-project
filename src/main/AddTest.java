@@ -11,6 +11,8 @@ public class AddTest {
         Add adder = new Add(conn);
         //adder.addWorkout("1994-07-21", "01:52:12", 5, "Løp fort");
         //adder.addExercise("bølla", "buksevann");
+        //adder.addEquipment("Bryst", "Pumpmeister2000");
+        //adder.addExerciseGroup("Løping");
     }
 
 
