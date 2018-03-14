@@ -1,6 +1,6 @@
 //class for testing methods
 
-import sample.com.util.ConnectionConfiguration;
+import com.util.ConnectionConfiguration;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -2,7 +2,7 @@
 //return connection object
 //every time we need to connect to mysql, we use this method
 
-package sample.com.util;
+package com.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
