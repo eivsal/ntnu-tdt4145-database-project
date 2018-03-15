@@ -41,7 +41,7 @@ public class Add {
         final String sql = "INSERT INTO equipment(description, name)"
                 + " VALUES (?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)){
-            setParameters(statement, name, description);
+            setParameters(statement, description, name);
             statement.execute();
         } catch (Exception e) {
             System.out.println(e);
