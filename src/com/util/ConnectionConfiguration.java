@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 
 public class ConnectionConfiguration {
 
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         Connection connection = null;
 
         ConnectionCredentials connectionCredentials = new ConnectionCredentials();
