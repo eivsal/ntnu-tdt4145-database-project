@@ -2,7 +2,7 @@ package com.util;
 
 public class ConnectionCredentials {
 	private String user = "root";
-	private String password = "root";
+	private String password = "";
 	private String url = "jdbc:mysql://localhost:3306/workoutdiary";
 
 	public String getPassword() {
