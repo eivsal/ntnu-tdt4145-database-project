@@ -56,9 +56,9 @@ public class MainController {
 	private void help() {
 		System.out.println("Commands: help, add, list, connect");
 		System.out.println("  help, -h, --help:       Display this message.");
-		System.out.println("  add, -a, --add:         [workout/exercise/equipment/group] [data]");
 		System.out.println("  list, -l, --list:       ");
-		System.out.println("  connect, -c, --connect: ");
+		System.out.println("  add, -a, --add:         [help/workout/exercise/equipment/group] [data]");
+		System.out.println("  connect, -c, --connect: [exercise/equipment/group] [data]");
 	}
 
 	private void connect() {
@@ -69,12 +69,14 @@ public class MainController {
 		} else {
 			switch (this.args[1]) {
 				case "help":
+					// Example: --connect help
 					System.out.println("Connect commands: exercise, equipment, group");
 					System.out.println("  exercise:   " + args[0] + " exercise [workout ID] [exercise ID] [duration in minutes] [performance: 0-10]");
 					System.out.println("  equipment:  " + args[0] + " equipment [exercise ID] [equipment ID] [kilos] [sets]");
 					System.out.println("  group:      " + args[0] + " group [exercise ID] [group ID]");
 					break;
 				case "exercise":
+					// Example: --connect exercise 3 3 40 3
 					usage = "Usage: " + args[0] + " exercise [workout ID] [exercise ID] [duration in minutes] [performance: 0-10]";
 					if (args.length < 6) {
 						System.out.println("Error: Too few arguments");
@@ -88,8 +90,32 @@ public class MainController {
 					}
 					break;
 				case "equipment":
+					// Example: --connect equipment 1 1 10.2 4
+					usage = "Usage: " + args[0] + " equipment [exercise ID] [equipment ID]  [kilos] [number of sets]";
+					if (args.length < 6) {
+						System.out.println("Error: Too few arguments");
+						System.out.println(usage);
+					} else if(args.length > 6) {
+						System.out.println("Error: Too many arguments");
+						System.out.println(usage);
+					} else {
+						Connect connector = new Connect(conn);
+						connector.connectEquipmentToExercise(Integer.parseInt(args[2]), Integer.parseInt(args[3]), Float.parseFloat(args[4]), Integer.parseInt(args[5]));
+					}
 					break;
 				case "group":
+					// Example: --connect group 1 1
+					usage = "Usage: " + args[0] + " equipment [exercise ID] [group ID]";
+					if (args.length < 4) {
+						System.out.println("Error: Too few arguments");
+						System.out.println(usage);
+					} else if(args.length > 4) {
+						System.out.println("Error: Too many arguments");
+						System.out.println(usage);
+					} else {
+						Connect connector = new Connect(conn);
+						connector.connectExerciseToExerciseGroup(Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+					}
 					break;
 				default:
 					System.out.println("Error: Unknown argument '" + this.args[1] + "'");
