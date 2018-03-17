@@ -55,9 +55,9 @@ public class MainController {
 	private void help() {
 		System.out.println("Commands: help, add, list, connect");
 		System.out.println("  help, -h, --help:       Display this message.");
-		System.out.println("  list, -l, --list:       ");
+		System.out.println("  list, -l, --list:       [help/workout/exersice/equipment/gruop]");
 		System.out.println("  add, -a, --add:         [help/workout/exercise/equipment/group] [data]");
-		System.out.println("  connect, -c, --connect: [exercise/equipment/group] [data]");
+		System.out.println("  connect, -c, --connect: [help/exercise/equipment/group] [data]");
 	}
 
 	private void list() {
