@@ -1,10 +1,10 @@
----
+<!-- ---
 title: "Innlevering 2 - Gruppe 40"
 subtitle: "TDT4145 - Datamodellering og databasesystemer"
 author: "Johannes Tomren Røsvik, Dennis Jianbin Liang, Pål Fossnes, Fredrik Jenssen"
 date: "18.03.18"
 output: "pdf_document"
----
+--- -->
 
 ![NTNU logo](https://qore.no/res/ntnu-logo-100.png)
 
