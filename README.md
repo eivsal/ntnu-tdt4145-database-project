@@ -159,13 +159,13 @@ Used for testing the application during development
 
 # Use cases:
 1. Registrere apparater, øvelser og treningsøkter med tilhørende data.
-	- Løses ved å kjøre addEquipment, addExercise, addWorkout
+	- Løses ved å kjøre addEquipment(), addExercise(), addWorkout(), som legger inn en ny rad i databasen, med den informasjonen fremstilt av brukeren
 2. Få opp informasjon om et antall  n  sist gjennomførte treningsøkter med notater, der n
 spesifiseres av brukeren.
-	- Løses ved å kjøre listWorkouts
+	- Løses ved å kjøre listWorkouts(), som gjennomfører spørringer som filtrerer ut ønsket data, og viser denne til brukere.
 3. For hver enkelt øvelse skal det være mulig å se en resultatlogg i et gitt tidsintervall spesifisert av brukeren.
-	- Løses ved å kjøre listExercises
+	- Løses ved å kjøre listExercises(), som gjennomfører spørringer som filtrerer ut ønsket data gitt ved tidsintervall spesifisert av brukeren, og viser dette.
 4. Lage øvelsegrupper og finne øvelser som er i samme gruppe.
-	- Løses ved å kjøre addExerciseGroup og listExerciseInGroup
-5. Valgfritt use case: For every equipment retrieve exercises for a given time interval.  
-	- Løses ved å kjøre listExercisesWithEquipment
+	- Løses ved å kjøre addExerciseGroup() og listExerciseInGroup(), som lager en ny excercise gruppe og viser alle exercises som er klassifisert i en gruppe
+5. Et valgfritt use case som dere selv bestemmer.
+	- Løses ved å kjøre listExercisesWithEquipment(). Denne metoden gjennomfører spørring som viser hvilke exercise som bruker hvilke equipment, i et gitt tidsintervall.
