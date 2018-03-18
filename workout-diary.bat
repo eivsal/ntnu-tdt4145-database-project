@@ -1,0 +1,1 @@
+java -jar out\artifacts\ntnu_tdt4145_database_project_jar\ntnu-tdt4145-database-project.jar %*
