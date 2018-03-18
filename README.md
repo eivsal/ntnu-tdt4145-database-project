@@ -116,3 +116,34 @@ connect equipment 1 1 50 10
 connect group 2 3
 
 ```
+
+
+# Overview of classes:
+
+## MainController
+Handles command line input, finds the appropriate function for given parameters, passes information on to the other classes, and displays help information to the user.
+
+## ConnectionCredentials
+Reads the contents of the config.conf file, and finds the password, username and url for the database.
+
+## ConnectionConfiguration
+Establishes a connection to a given database.
+
+## Add
+Handles all cases where there is information to be added to the database. This class satisfies requirement number 1 ("Registrere apparater, øvelser og treningsøkter med tilhørende data"), and pars of 4 ("Lage øvelsegrupper og finne øvelser som er i samme gruppe").
+
+## Connect
+Handles all cases where there needs to be added a relation between two rows. This class satisfies requirement number.
+
+## List
+Handles all cases where there needs to be displayed a list to the user. This class satisfies the requirement 2,3,5 and parts of 4.
+
+# Use cases:
+1. Registrere apparater, øvelser og treningsøkter med tilhørende data.
+	-
+2. Få opp informasjon om et antall  n  sist gjennomførte treningsøkter med notater, der n
+spesifiseres av brukeren.
+1
+3. For hver enkelt øvelse skal det være mulig å se en resultatlogg i et gitt tidsintervall spesifisert av brukeren.
+4. Lage øvelsegrupper og finne øvelser som er i samme gruppe.
+5. Et valgfritt use case som dere selv bestemmer.
