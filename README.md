@@ -167,5 +167,5 @@ spesifiseres av brukeren.
 	- Løses ved å kjøre listExercises
 4. Lage øvelsegrupper og finne øvelser som er i samme gruppe.
 	- Løses ved å kjøre addExerciseGroup og listExerciseInGroup
-5. Et valgfritt use case som dere selv bestemmer.
+5. Valgfritt use case: For every equipment retrieve exercises for a given time interval.  
 	- Løses ved å kjøre listExercisesWithEquipment
