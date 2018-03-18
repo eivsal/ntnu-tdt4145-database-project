@@ -140,10 +140,13 @@ Handles all cases where there needs to be displayed a list to the user. This cla
 
 # Use cases:
 1. Registrere apparater, øvelser og treningsøkter med tilhørende data.
-	-
+	-Løses ved å kjøre addEquipment, addExercise, addWorkout
 2. Få opp informasjon om et antall  n  sist gjennomførte treningsøkter med notater, der n
 spesifiseres av brukeren.
-1
+	-Løses ved å kjøre listWorkouts
 3. For hver enkelt øvelse skal det være mulig å se en resultatlogg i et gitt tidsintervall spesifisert av brukeren.
+	-Løses ved å kjøre listExercises
 4. Lage øvelsegrupper og finne øvelser som er i samme gruppe.
+	-Løses ved å kjøre addExerciseGroup og listExerciseInGroup
 5. Et valgfritt use case som dere selv bestemmer.
+	-Løses ved å kjøre listExercisesWithEquipment
