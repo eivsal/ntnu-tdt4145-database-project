@@ -12,3 +12,11 @@ __TODO: Import from .sql-file in workbench__
 
 
 #
+
+### How to add test-data to database
+
+1. Open MySQL Workbench 
+2. Find the file named "workoutdiary.sql" locally on your computer
+3. Open the file in MySQL Workbench
+4. Execute the file
+5. Make sure that the workoutdiary database has appeared
