@@ -22,17 +22,17 @@ public class List {
     }
 
     public void listExercises (String startDato, String stopDato) {
-        final String sql = "SELECT workout_has_exercise.duration, workout_has_exercise.performance FROM ((workout_has_exercise INNER JOIN exercise ON workout_has_exercise.Exercise_id = exercise.id) INNER JOIN workout ON workout_has_exercise.Workout_id = workout.id) WHERE " +startDato+ "< workout.date < "+stopDato;
+        final String sql = "SELECT workout_has_exercise.duration, workout_has_exercise.performance, workout_has_exercise.Workout_id FROM ((workout_has_exercise INNER JOIN exercise ON workout_has_exercise.Exercise_id = exercise.id) INNER JOIN workout ON workout_has_exercise.Workout_id = workout.id) WHERE " +startDato+ "< workout.date < "+stopDato;
         pstatement(sql);
     }
 
     public void  listExercisesInGroup(String name){
-        final String sql = "SELECT exercise.name FROM ((exercise INNER JOIN exercise_has_exercisegroup ON exercise.id = exercise_has_exercisegroup.Exercise_id) INNER JOIN exercisegroup ON exercisegroup.id = exercise_has_exercisegroup.ExerciseGroup_id) WHERE exercisegroup.name = " +name;
+        final String sql = "SELECT exercise.id, exercise.name, exercise.description FROM ((exercise INNER JOIN exercise_has_exercisegroup ON exercise.id = exercise_has_exercisegroup.Exercise_id) INNER JOIN exercisegroup ON exercisegroup.id = exercise_has_exercisegroup.ExerciseGroup_id) WHERE exercisegroup.name = '" +name+"'";
         pstatement(sql);
     }
 
     public void listExerciseswithEquipment(String startDato, String stopDato){
-        final String sql = "SELECT exercise.name FROM ((exercise INNER JOIN (exercise_has_equipment INNER JOIN equipment ON exercise_has_equipment.Equipment_id = equipment.id) ON exercise.id = exercise_has_equipment.Exercise_id) INNER JOIN (workout INNER JOIN workout_has_exercise ON workout.id = workout_has_exercise.Workout_id) ON workout_has_exercise.Exercise_id = exercise.id) WHERE "+startDato+ "< workout.date < "+stopDato ;
+        final String sql = "SELECT exercise.id, exercise.name, exercise.description FROM ((exercise INNER JOIN (exercise_has_equipment INNER JOIN equipment ON exercise_has_equipment.Equipment_id = equipment.id) ON exercise.id = exercise_has_equipment.Exercise_id) INNER JOIN (workout INNER JOIN workout_has_exercise ON workout.id = workout_has_exercise.Workout_id) ON workout_has_exercise.Exercise_id = exercise.id) WHERE "+startDato+ "< workout.date < "+stopDato ;
         pstatement(sql);
     }
 
@@ -44,16 +44,18 @@ public class List {
             int columnsNumber = rsmd.getColumnCount();
 
             while (rs.next()) {
-                for(int i = 1; i < columnsNumber; i++)
-                    System.out.print(rs.getString(i) + " ");
+                for(int i = 1; i < columnsNumber + 1; i++) {
+                	if (i == columnsNumber) {
+		                System.out.print(rs.getString(i) + " ");
+	                } else {
+                		System.out.print(rs.getString(i) + ", ");
+	                }
+                }
                 System.out.println();
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-
-
-
     }
 
 
