@@ -120,6 +120,15 @@ connect group 2 3
 
 # Overview of classes:
 
+Our classes are:
+- ConnectionConfiguration
+- ConnectionCredentials
+- MainController
+- Add
+- Connect
+- List
+- ConnectionApp
+
 ## MainController
 Handles command line input, finds the appropriate function for given parameters, passes information on to the other classes, and displays help information to the user.
 
@@ -127,16 +136,26 @@ Handles command line input, finds the appropriate function for given parameters,
 Reads the contents of the config.conf file, and finds the password, username and url for the database.
 
 ## ConnectionConfiguration
-Establishes a connection to a given database.
+Establishes a connection to a database with the given credentials.
 
 ## Add
-Handles all cases where there is information to be added to the database. This class satisfies requirement number 1 ("Registrere apparater, øvelser og treningsøkter med tilhørende data"), and pars of 4 ("Lage øvelsegrupper og finne øvelser som er i samme gruppe").
+Handles all cases where information needs to be added to the database. This class satisfies requirement number 1, and parts of 4. The class is able to add workouts, exercises, equipment and groups.
 
 ## Connect
-Handles all cases where there needs to be added a relation between two rows. This class satisfies requirement number.
+Handles all cases where there needs to be created a relation between two entities. This includes
+- Adding an exercise to a workout
+- Adding an exercise to a exercise group
+- Adding equipment to an exercise
 
 ## List
-Handles all cases where there needs to be displayed a list to the user. This class satisfies the requirement 2,3,5 and parts of 4.
+Handles all cases where there needs to be displayed a list to the user. This class satisfies the requirement 2,3,5 and the remaining parts of 4. The class is able to display:
+- The n latest workouts
+- Workouts with a given exercise within a time period
+- All exercises that are part of a group
+- All exercises that uses an equipment
+
+## ConnectionApp
+Used for testing the application during development
 
 # Use cases:
 1. Registrere apparater, øvelser og treningsøkter med tilhørende data.
